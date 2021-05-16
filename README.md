@@ -1,2 +1,2 @@
-# simpleapp
-Simple Hello World App Written in GoLang.  Including Kubernetes deployment YAML file and Helm Chart.
+# sampletestapp
+Una aplicacion con un servicio de backend y otro frontend escrita en go y fundamentalmente para probar kubernetes.
