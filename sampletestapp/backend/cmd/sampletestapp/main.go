@@ -69,8 +69,10 @@ func handlerPing(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	t := time.Now().String()
+
 	data := Myresponse{
-		Date:     time.Now().String(),
+		Date:     t,
 		Origen:   r.RemoteAddr,
 		Xff:      r.Header.Get("X-Forwarded-For"),
 		Hostname: hostname,
@@ -82,6 +84,7 @@ func handlerPing(w http.ResponseWriter, r *http.Request) {
 		logPrint(err.Error(), false)
 		return
 	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	w.Write(PayLoad)

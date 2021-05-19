@@ -10,7 +10,7 @@ import (
 var basepath = path.Join(path.Base(""), "cmd", "simplefrontend")
 
 func main() {
-	port := 80
+	port := 8888
 
 	http.HandleFunc("/", handlerIndex)
 	http.Handle("/static/",
@@ -40,7 +40,8 @@ func handlerIndex(w http.ResponseWriter, r *http.Request) {
 	}
 
 	message, err := getMessage()
-	fmt.Println(message)
+	fmt.Printf("2a vez API Response as struct %+v\n", message)
+	
 	if err != nil {
 		errorResponse(w)
 		logPrint(err.Error(), false)
@@ -48,7 +49,11 @@ func handlerIndex(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var data = map[string]interface{}{
-		"message": message,
+		"message": message.Date,
+		"hostname": message.Hostname,
+		"origen": message.Origen,
+		"xff": message.Xff,
+		"ips": message.Ips,
 	}
 
 	err = tmpl.Execute(w, data)

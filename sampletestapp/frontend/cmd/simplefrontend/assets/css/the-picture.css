@@ -1,0 +1,19 @@
+body {
+  background: url("../svg/apif.svg") no-repeat bottom center
+    fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  -o-background-size: contain;
+}
+
+.btn-primary-outline {
+  background-color: #777;
+  opacity: 0.9;
+  border-color: #ccc;
+}
+
+.opaque {
+  border-color: #ccc;
+  padding: 30px 30px 30px 30px;
+}
